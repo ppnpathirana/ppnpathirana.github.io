@@ -1,0 +1,16 @@
+(()=>{
+ const root=document.documentElement,media=matchMedia('(prefers-color-scheme: dark)'),motion=matchMedia('(prefers-reduced-motion: reduce)');
+ const menu=document.querySelector('#menu'),controls=document.createElement('div');controls.className='header-controls';menu.before(controls);
+ const toggle=document.createElement('button');toggle.type='button';toggle.className='theme-toggle';controls.append(toggle,menu);
+ function refresh(){const dark=root.dataset.theme==='dark';toggle.setAttribute('aria-label',`Switch to ${dark?'light':'dark'} theme (current: ${dark?'dark':'light'})`);toggle.setAttribute('aria-pressed',String(dark));toggle.innerHTML=dark?'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A9 9 0 0 1 9.7 3.5 9 9 0 1 0 20.5 14.3Z"/></svg>';}
+ toggle.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('portfolio-theme',root.dataset.theme)}catch{}refresh()});
+ media.addEventListener('change',e=>{let saved;try{saved=localStorage.getItem('portfolio-theme')}catch{}if(!saved){root.dataset.theme=e.matches?'dark':'light';refresh()}});refresh();
+ const portrait=document.querySelector('.hero>div:last-child');portrait.classList.add('portrait-stage');const orb=document.createElement('div');orb.className='engineering-orb';orb.setAttribute('aria-hidden','true');orb.innerHTML='<div class="orb-rotation"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="orbit-dot"></span>';portrait.prepend(orb);
+ const chip=document.createElement('span');chip.className='floating-chip';chip.textContent='AVAILABLE · 2027';portrait.append(chip);
+ const visibility=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('in-view',e.isIntersecting)),{threshold:.1});visibility.observe(portrait);
+ const reveal=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');reveal.unobserve(e.target)}}),{threshold:.06});
+ if(!motion.matches)document.querySelectorAll('.about,.project,.skills article,.cert,.research,.contact').forEach(e=>{e.classList.add('reveal');reveal.observe(e)});
+ document.querySelectorAll('.project-photo').forEach(card=>{let frame;function reset(){cancelAnimationFrame(frame);card.style.removeProperty('transform');card.style.removeProperty('--light-x');card.style.removeProperty('--light-y')}
+ card.addEventListener('pointermove',e=>{if(motion.matches||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;card.style.transform=`perspective(1000px) rotateX(${(0.5-y)*5}deg) rotateY(${(x-0.5)*5}deg) translateY(-4px)`;card.style.setProperty('--light-x',`${x*100}%`);card.style.setProperty('--light-y',`${y*100}%`)})});card.addEventListener('pointerleave',reset);card.addEventListener('blur',reset);motion.addEventListener('change',reset)});
+ motion.addEventListener('change',()=>{if(motion.matches)document.querySelectorAll('.reveal').forEach(e=>e.classList.add('revealed'))});
+})();
