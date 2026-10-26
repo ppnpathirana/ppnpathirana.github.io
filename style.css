@@ -32,3 +32,15 @@ html[data-theme=dark] .projects{background:var(--surface)}html[data-theme=dark] 
 #home .portrait{width:min(100%,320px);height:auto;aspect-ratio:1/1;border-radius:50%;overflow:hidden;padding:7px}
 #home .portrait img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 24%;border-radius:50%}
 @media(max-width:760px){#home .portrait{width:min(78vw,280px);aspect-ratio:1/1;border-radius:50%}}
+
+/* Subtle circuit animation behind the circular profile photo */
+.tech-backdrop{position:absolute;z-index:0;inset:-12%;overflow:visible;pointer-events:none;isolation:isolate}
+.tech-backdrop svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none;stroke:#59c9b5;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;opacity:.47;filter:drop-shadow(0 0 4px #42baa966)}
+.tech-backdrop svg path{stroke-dasharray:5 9;animation:circuit-flow 13s linear infinite}
+.tech-backdrop svg circle{fill:#7be2c8;stroke:#0c2830;stroke-width:2;filter:drop-shadow(0 0 5px #63dcc4);transform-box:fill-box;transform-origin:center;animation:circuit-node 3.2s ease-in-out infinite alternate}
+.tech-backdrop svg circle:nth-of-type(even){animation-delay:1.3s}
+.tech-glow{position:absolute;inset:20%;z-index:-1;border-radius:50%;background:radial-gradient(circle,#48c6b51c 0,transparent 68%);filter:blur(7px);animation:tech-breathe 6s ease-in-out infinite alternate}
+@keyframes circuit-flow{to{stroke-dashoffset:-56}}
+@keyframes circuit-node{to{opacity:.38;transform:scale(.72)}}
+@keyframes tech-breathe{to{opacity:.38;transform:scale(1.08)}}
+@media(prefers-reduced-motion:reduce){.tech-backdrop svg path,.tech-backdrop svg circle,.tech-glow{animation:none!important}}
