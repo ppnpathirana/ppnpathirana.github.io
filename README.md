@@ -1,6 +1,6 @@
 # Pasindu Nirmal Pathirana — Engineering Portfolio
 
-Responsive portfolio featuring ten independent engineering projects, original project photographs, selected certificates, research participation and internship availability (4 January–2 July 2027).
+Responsive portfolio featuring eleven engineering projects, original project photographs, selected certificates, research participation and internship availability (4 January–2 July 2027).
 
 ## GitHub Pages
 Publish these files from the root of the main branch of ppnpathirana/ppnpathirana.github.io. Enable Settings > Pages > Deploy from a branch > main > /(root). The site address is https://ppnpathirana.github.io/.
