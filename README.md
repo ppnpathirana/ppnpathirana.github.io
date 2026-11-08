@@ -1,6 +1,6 @@
-# Pasindu Nirmal Pathirana — Engineering Portfolio
+# Pasindu Nirmal Pathirana — Engineering Technology Portfolio
 
-Responsive portfolio featuring eleven engineering projects, original project photographs, selected certificates, research participation and internship availability (4 January–2 July 2027).
+Responsive portfolio featuring eleven hands-on technology projects across robotics, electronics and mechanical systems, original project photographs, selected certificates, research participation and internship availability (4 January–2 July 2027).
 
 ## GitHub Pages
 Publish these files from the root of the main branch of ppnpathirana/ppnpathirana.github.io. Enable Settings > Pages > Deploy from a branch > main > /(root). The site address is https://ppnpathirana.github.io/.
@@ -10,9 +10,9 @@ No build tools or backend are required. Open index.html locally, or run python -
 ## Features
 - Dark/light themes with saved preference and device preference on the first visit.
 - Cinematic opening card, streaming-inspired project shelf and accessible project detail overlays.
-- Lightweight floating engineering geometry and pointer-responsive project photo tilt.
+- Lightweight floating technical geometry and pointer-responsive project photo tilt.
 - Accessible keyboard controls, reduced-motion support and mobile layouts.
-- Full original project photographs and certificate PDFs hosted in this repository.
+- Full original project prototype photographs and certificate PDFs hosted in this repository.
 
 ## Editing
 - index.html: page structure, biography, education, skills and contact information.
