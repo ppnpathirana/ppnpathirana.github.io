@@ -9,14 +9,16 @@ No build tools or backend are required. Open index.html locally, or run python -
 
 ## Features
 - Dark/light themes with saved preference and device preference on the first visit.
+- Cinematic opening card, streaming-inspired project shelf and accessible project detail overlays.
 - Lightweight floating engineering geometry and pointer-responsive project photo tilt.
 - Accessible keyboard controls, reduced-motion support and mobile layouts.
 - Full original project photographs and certificate PDFs hosted in this repository.
 
 ## Editing
-- index.html: biography, education, skills and contact information.
+- index.html: page structure, biography, education, skills and contact information.
 - app.js: project descriptions, photographs and certificates.
-- effects.js: theme switching and visual interactions.
+- effects.js: theme switching and portrait visual effects.
+- app.js: project shelves, project details, certificates and intro interactions.
 - style.css: responsive layout, theme colours and animation styling.
 
 Project details are supplied by the portfolio owner and linked repositories. They are portfolio descriptions, not independent performance certifications. Google Fonts are optional external resources with system font fallbacks.
